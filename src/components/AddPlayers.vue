@@ -1,8 +1,6 @@
 <template>
   <v-form @submit.prevent="add()">
-    <p>
-      <h3>{{ $t("AddPlayers.title") }}</h3>
-    </p>
+    <h3 class="mb-3">{{ $t("AddPlayers.title") }}</h3>
     <v-text-field
       v-model="name"
       ref="name"
@@ -21,36 +19,36 @@
 </template>
 
 <script>
-  export default {
-    name: 'AddPlayers',
+export default {
+  name: "AddPlayers",
 
-    data: () => ({
-      name: "",
-      position: "defender",
-    }),
+  data: () => ({
+    name: "",
+    position: "defender",
+  }),
 
-    methods: {
-      add() {
-        if (!!this.name) {
-          const player = {
-            name: this.name,
-            position: this.position,
-            availability: {},
+  methods: {
+    add() {
+      if (this.name) {
+        const player = {
+          name: this.name,
+          position: this.position,
+          availability: {},
+        };
+        this.$store.state.days.forEach(day => {
+          player.availability[day] = {
+            hours: [...this.$store.state.hours],
           };
-          this.$store.state.days.forEach(day => {
-              player.availability[day] = {
-                hours: [...this.$store.state.hours]
-              };
-          });
-          this.$store.state.players.push(player);
-          this.name = "";
-          this.$refs.name.focus();
-        }
-      },
+        });
+        this.$store.state.players.push(player);
+        this.name = "";
+        this.$refs.name.focus();
+      }
     },
+  },
 
-    mounted() {
-      this.$refs.name.focus();
-    },
-  }
+  mounted() {
+    this.$refs.name.focus();
+  },
+};
 </script>

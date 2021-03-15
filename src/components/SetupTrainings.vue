@@ -1,12 +1,12 @@
 <template>
   <div>
-    <p>
-      <h3>{{ $t("SetupTrainings.title") }}</h3>
-    </p>
-    <v-simple-table v-for="day in $store.state.days" dense>
+    <h3 class="mb-3">{{ $t("SetupTrainings.title") }}</h3>
+    <v-simple-table v-for="day in $store.state.days" :key="day" dense>
       <thead>
         <tr>
-          <th colspan="3" class="text-capitalize font-weight-black">{{ $t(day) }}</th>
+          <th colspan="3" class="text-capitalize font-weight-black">
+            {{ $t(day) }}
+          </th>
         </tr>
         <tr>
           <th>{{ $t("time") }}</th>
@@ -15,29 +15,41 @@
         </tr>
       </thead>
       <tbody>
-        <tr v-for="hour in $store.state.hours">
+        <tr v-for="hour in $store.state.hours" :key="hour">
           <td>{{ hour }}</td>
           <td>
             <v-select
               :items="getCandidates('defender', day, hour)"
-              dense hide-details flat solo
+              dense
+              hide-details
+              flat
+              solo
               placeholder="..."
             ></v-select>
             <v-select
               :items="getCandidates('defender', day, hour)"
-              dense hide-details flat solo
+              dense
+              hide-details
+              flat
+              solo
               placeholder="..."
             ></v-select>
           </td>
           <td>
             <v-select
               :items="getCandidates('attacker', day, hour)"
-              dense hide-details flat solo
+              dense
+              hide-details
+              flat
+              solo
               placeholder="..."
             ></v-select>
             <v-select
               :items="getCandidates('attacker', day, hour)"
-              dense hide-details flat solo
+              dense
+              hide-details
+              flat
+              solo
               placeholder="..."
             ></v-select>
           </td>
@@ -48,20 +60,22 @@
 </template>
 
 <script>
-  export default {
-    name: 'SetupTrainings',
+export default {
+  name: "SetupTrainings",
 
-    methods: {
-      getCandidates(position, day, hour) {
-        const availablePlayers = this.$store.state.players.filter(player => {
-          return ((player.position === position || player.position === "versatile") && player.availability[day].hours.includes(hour));
-        });
-        
-        return availablePlayers.map(player => player.name);
-      },
+  methods: {
+    getCandidates(position, day, hour) {
+      const availablePlayers = this.$store.state.players.filter(player => {
+        return (
+          (player.position === position || player.position === "versatile") &&
+          player.availability[day].hours.includes(hour)
+        );
+      });
+
+      return availablePlayers.map(player => player.name);
     },
-
-  }
+  },
+};
 </script>
 
 <style>
