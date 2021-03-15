@@ -5,6 +5,7 @@
     </p>
     <v-text-field
       v-model="name"
+      ref="name"
       :placeholder="$t('AddPlayers.placeholder')"
       outlined
       clearable
@@ -42,8 +43,13 @@
           });
           this.$store.state.players.push(player);
           this.name = "";
+          this.$refs.name.focus();
         }
       },
+    },
+
+    mounted() {
+      this.$refs.name.focus();
     },
   }
 </script>
