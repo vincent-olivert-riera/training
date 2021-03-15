@@ -1,0 +1,22 @@
+{
+  "monday": "Monday",
+  "tuesday": "Tuesday",
+  "wednesday": "Wednesday",
+  "thursday": "Thursday",
+  "defender": "Defender",
+  "attacker": "Attacker",
+  "time": "Time",
+  "delete": "Delete",
+  "add": "Add",
+  "start": "Start",
+  "AddPlayers": {
+    "title": "Add player",
+    "placeholder": "Player's name"
+  },
+  "SetAvailability": {
+    "title": "Availability"
+  },
+  "SetupTrainings": {
+    "title": "Setup trainings"
+  }
+}

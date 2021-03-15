@@ -1,10 +1,10 @@
 <template>
   <div v-if="enoughPlayers">
     <p>
-      <h3>Setup training sessions</h3>
+      <h3>{{ $t("SetupTrainings.title") }}</h3>
     </p>
     <p>
-      <v-btn to="/setup">Go!</v-btn>
+      <v-btn to="/setup">{{ $t("start") }}</v-btn>
     </p>
   </div>
 </template>

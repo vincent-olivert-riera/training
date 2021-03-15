@@ -2,7 +2,7 @@
   <div class="define">
     <AddPlayers />
     <SetAvailability />
-    <GoBtn />
+    <StartBtn />
   </div>
 </template>
 
@@ -10,14 +10,14 @@
 // @ is an alias to /src
 import AddPlayers from '@/components/AddPlayers.vue'
 import SetAvailability from '@/components/SetAvailability.vue'
-import GoBtn from '@/components/GoBtn.vue'
+import StartBtn from '@/components/StartBtn.vue'
 
 export default {
   name: 'Define',
   components: {
     AddPlayers,
     SetAvailability,
-    GoBtn,
+    StartBtn,
   }
 }
 </script>

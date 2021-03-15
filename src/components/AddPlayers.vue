@@ -1,20 +1,20 @@
 <template>
   <v-form @submit.prevent="add()">
     <p>
-      <h3>Add players</h3>
+      <h3>{{ $t("AddPlayers.title") }}</h3>
     </p>
     <v-text-field
       v-model="name"
-      placeholder="Player's name"
+      :placeholder="$t('AddPlayers.placeholder')"
       outlined
       clearable
       hide-details
     ></v-text-field>
     <v-radio-group v-model="position">
-      <v-radio label="Defender" value="defender"></v-radio>
-      <v-radio label="Attacker" value="attacker"></v-radio>
+      <v-radio :label="$t('defender')" value="defender"></v-radio>
+      <v-radio :label="$t('attacker')" value="attacker"></v-radio>
     </v-radio-group>
-    <v-btn @click="add()">Add</v-btn>
+    <v-btn @click="add()">{{ $t("add") }}</v-btn>
   </v-form>
 </template>
 

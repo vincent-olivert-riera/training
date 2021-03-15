@@ -1,17 +1,17 @@
 <template>
   <div>
     <p>
-      <h3>Training sessions</h3>
+      <h3>{{ $t("SetupTrainings.title") }}</h3>
     </p>
     <v-simple-table v-for="day in $store.state.days" dense>
       <thead>
         <tr>
-          <th colspan="3" class="text-capitalize font-weight-black">{{ day }}</th>
+          <th colspan="3" class="text-capitalize font-weight-black">{{ $t(day) }}</th>
         </tr>
         <tr>
-          <th>Time</th>
-          <th>Defenders</th>
-          <th>Attackers</th>
+          <th>{{ $t("time") }}</th>
+          <th>{{ $t("defender") }}</th>
+          <th>{{ $t("attacker") }}</th>
         </tr>
       </thead>
       <tbody>

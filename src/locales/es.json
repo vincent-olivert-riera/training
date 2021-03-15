@@ -1,3 +1,22 @@
 {
-  "message": "hello i18n !!"
+  "monday": "Lunes",
+  "tuesday": "Martes",
+  "wednesday": "Miércoles",
+  "thursday": "Jueves",
+  "defender": "Zaguero",
+  "attacker": "Delantero",
+  "time": "Hora",
+  "delete": "Eliminar",
+  "add": "Añadir",
+  "start": "Empezar",
+  "AddPlayers": {
+    "title": "Añadir jugadores",
+    "placeholder": "Nombre del jugador"
+  },
+  "SetAvailability": {
+    "title": "Disponibilidad"
+  },
+  "SetupTrainings": {
+    "title": "Configurar entrenamientos"
+  }
 }
