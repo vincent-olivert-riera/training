@@ -1,5 +1,5 @@
 module.exports = {
-  publicPath: "/training/",
+  publicPath: "/",
   transpileDependencies: ["vuetify"],
 
   pluginOptions: {
