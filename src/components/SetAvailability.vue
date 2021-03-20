@@ -1,10 +1,10 @@
 <template>
-  <div v-if="$store.state.players.length > 0">
+  <div v-if="players.length > 0">
     <h3 class="mb-3">{{ $t("SetAvailability.title") }}</h3>
     <v-expansion-panels focusable>
-      <v-expansion-panel v-for="(player, i) in $store.state.players" :key="i">
+      <v-expansion-panel v-for="(player, i) in players" :key="i">
         <v-expansion-panel-header>
-          {{ player.name }} ({{ $t(player.position) }})
+          {{ player.name }} ({{ $t(player.position.toLowerCase()) }})
         </v-expansion-panel-header>
         <v-expansion-panel-content>
           <v-row v-for="day in $store.state.days" :key="`${i}-${day}`">
@@ -14,7 +14,7 @@
             <v-col xl="11" lg="11" md="11" sm="10" cols="8">
               <v-select
                 :items="$store.state.hours"
-                v-model="$store.state.players[i].availability[day].hours"
+                v-model="players[i].availability[day].hours"
                 dense
                 hide-details
                 flat
@@ -26,7 +26,7 @@
           </v-row>
           <v-row>
             <p>
-              <v-btn color="error" @click="$store.state.players.splice(i, 1)">
+              <v-btn color="error" @click="deletePlayer(player.id)">
                 {{ $t("delete") }}
               </v-btn>
             </p>
@@ -38,8 +38,24 @@
 </template>
 
 <script>
+import { mapState } from "vuex";
+
 export default {
   name: "SetAvailability",
+
+  computed: {
+    ...mapState(["players"]),
+  },
+
+  methods: {
+    deletePlayer(id) {
+      this.$store.dispatch("deletePlayer", id);
+    },
+  },
+
+  beforeCreate() {
+    this.$store.dispatch("fetchPlayers");
+  },
 };
 </script>
 

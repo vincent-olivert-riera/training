@@ -4,9 +4,10 @@ import router from "./router";
 import store from "./store";
 import vuetify from "./plugins/vuetify";
 import i18n from "./i18n";
-import apolloProvider from "./apollo";
+import { apolloProvider } from "./apollo";
 
-Vue.config.productionTip = false;
+//Vue.config.productionTip = false;
+Vue.config.devtools = true;
 
 new Vue({
   router,

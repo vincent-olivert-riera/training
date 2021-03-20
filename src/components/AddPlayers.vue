@@ -4,17 +4,27 @@
     <v-text-field
       v-model="name"
       ref="name"
-      :placeholder="$t('AddPlayers.placeholder')"
+      :label="$t('name')"
       outlined
       clearable
       hide-details
     ></v-text-field>
     <v-radio-group v-model="position" row>
-      <v-radio :label="$t('defender')" value="defender"></v-radio>
-      <v-radio :label="$t('attacker')" value="attacker"></v-radio>
-      <v-radio :label="$t('versatile')" value="versatile"></v-radio>
+      <v-radio :label="$t('defender')" value="DEFENDER"></v-radio>
+      <v-radio :label="$t('attacker')" value="ATTACKER"></v-radio>
+      <v-radio :label="$t('versatile')" value="VERSATILE"></v-radio>
     </v-radio-group>
-    <v-btn @click="add()">{{ $t("add") }}</v-btn>
+    <v-text-field
+      v-model="level"
+      type="number"
+      min="0"
+      :label="$t('level')"
+      value="0"
+      class="mb-4"
+      outlined
+      hide-details
+    ></v-text-field>
+    <v-btn @click="addPlayer()">{{ $t("add") }}</v-btn>
   </v-form>
 </template>
 
@@ -24,25 +34,23 @@ export default {
 
   data: () => ({
     name: "",
-    position: "defender",
+    position: "DEFENDER",
+    level: 0,
   }),
 
   methods: {
-    add() {
+    addPlayer() {
       if (this.name) {
-        const player = {
-          name: this.name,
-          position: this.position,
-          availability: {},
-        };
-        this.$store.state.days.forEach(day => {
-          player.availability[day] = {
-            hours: [...this.$store.state.hours],
-          };
-        });
-        this.$store.state.players.push(player);
-        this.name = "";
-        this.$refs.name.focus();
+        this.$store
+          .dispatch("addPlayer", {
+            name: this.name,
+            position: this.position,
+            level: Number(this.level),
+          })
+          .then(() => {
+            this.name = "";
+            this.$refs.name.focus();
+          });
       }
     },
   },

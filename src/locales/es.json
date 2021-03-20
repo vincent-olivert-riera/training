@@ -10,9 +10,10 @@
   "delete": "Eliminar",
   "add": "Añadir",
   "start": "Empezar",
+  "name": "Nombre",
+  "level": "Nivel",
   "AddPlayers": {
-    "title": "Añadir jugadores",
-    "placeholder": "Nombre del jugador"
+    "title": "Añadir jugadores"
   },
   "SetAvailability": {
     "title": "Disponibilidad"

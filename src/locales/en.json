@@ -10,9 +10,10 @@
   "delete": "Delete",
   "add": "Add",
   "start": "Start",
+  "name": "Name",
+  "level": "Level",
   "AddPlayers": {
-    "title": "Add player",
-    "placeholder": "Player's name"
+    "title": "Add player"
   },
   "SetAvailability": {
     "title": "Availability"
