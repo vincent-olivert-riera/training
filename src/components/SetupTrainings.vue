@@ -24,6 +24,7 @@
               hide-details
               flat
               solo
+              clearable
               placeholder="..."
             ></v-select>
             <v-select
@@ -32,6 +33,7 @@
               hide-details
               flat
               solo
+              clearable
               placeholder="..."
             ></v-select>
           </td>
@@ -42,6 +44,7 @@
               hide-details
               flat
               solo
+              clearable
               placeholder="..."
             ></v-select>
             <v-select
@@ -50,6 +53,7 @@
               hide-details
               flat
               solo
+              clearable
               placeholder="..."
             ></v-select>
           </td>
