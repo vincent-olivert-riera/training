@@ -86,6 +86,10 @@ export default {
       return availablePlayers.map(player => player.name);
     },
   },
+
+  beforeCreate() {
+    this.$store.dispatch("fetchPlayers");
+  },
 };
 </script>
 
