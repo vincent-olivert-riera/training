@@ -21,6 +21,13 @@ export default new Vuex.Store({
       state.players.push(player);
     },
 
+    updatePlayer(state, player) {
+      const idx = state.players.findIndex(p => p.id === player.id);
+      if (idx > -1) {
+        state.players[idx] = { ...player };
+      }
+    },
+
     popPlayer(state, id) {
       const idx = state.players.findIndex(player => player.id === id);
       if (idx > -1) {
@@ -83,6 +90,35 @@ export default new Vuex.Store({
         },
       });
       commit("pushPlayer", resp.data.addPlayer);
+    },
+
+    async updateAvailability({ commit }, args) {
+      const resp = await apolloClient.mutate({
+        mutation: gql`
+          mutation($id: ID!, $availability: AvailabilityInput!) {
+            updatePlayer(id: $id, availability: $availability) {
+              id
+              name
+              position
+              level
+              availability {
+                monday
+                tuesday
+                wednesday
+                thursday
+                friday
+                saturday
+                sunday
+              }
+            }
+          }
+        `,
+        variables: {
+          id: args.id,
+          availability: args.availability,
+        },
+      });
+      commit("updatePlayer", resp.data.updatePlayer);
     },
 
     async deletePlayer({ commit }, id) {
