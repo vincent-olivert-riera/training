@@ -12,13 +12,14 @@
   "start": "Start",
   "name": "Name",
   "level": "Level",
+  "save": "Save",
   "AddPlayers": {
     "title": "Add player"
   },
   "SetAvailability": {
     "title": "Availability"
   },
-  "SetupTrainings": {
-    "title": "Setup trainings"
+  "TrainingWeek": {
+    "title": "Training week"
   }
 }

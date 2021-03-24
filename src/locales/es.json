@@ -12,13 +12,14 @@
   "start": "Empezar",
   "name": "Nombre",
   "level": "Nivel",
+  "save": "Guardar",
   "AddPlayers": {
     "title": "Añadir jugadores"
   },
   "SetAvailability": {
     "title": "Disponibilidad"
   },
-  "SetupTrainings": {
-    "title": "Configurar entrenamientos"
+  "TrainingWeek": {
+    "title": "Semana de entrenamiento"
   }
 }

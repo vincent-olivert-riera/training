@@ -1,8 +1,8 @@
 <template>
   <div v-if="enoughPlayers">
-    <h3 class="mb-3">{{ $t("SetupTrainings.title") }}</h3>
+    <h3 class="mb-3">{{ $t("TrainingWeek.title") }}</h3>
     <p>
-      <v-btn to="/setup">{{ $t("start") }}</v-btn>
+      <v-btn to="/trainings">{{ $t("start") }}</v-btn>
     </p>
   </div>
 </template>
